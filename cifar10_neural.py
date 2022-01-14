@@ -2,12 +2,11 @@
 """
 Created on Tue Oct  5 15:12:19 2021
 
-dataml100 exercise 4
-
-@author: Tommi Kivinen tommi.kivinen@tuni.fi
+@author: Tommi Kivinen 
+tommi.kivinen@tuni.fi
 """
 
-#%% imports and data
+#%% imports and data preprocessing
 import pickle
 import numpy as np
 import matplotlib.pyplot as plt
