@@ -5,4 +5,4 @@ The CIFAR-10 is an image dataset consisting of 60000 32x32 colour images in 10 c
 More information: https://www.cs.toronto.edu/~kriz/cifar.html
 
 The classifier utilizes TensorFlow to achieve classifying accuracy of ~70 %.
-More layers could be added to the model for even better accuracy, but this is not implemented because my computer is not enough powerful for more complex modelling.
+More layers could be added to the model for even better accuracy, but this is not implemented because my computer is not powerful enough for more complex modelling.
