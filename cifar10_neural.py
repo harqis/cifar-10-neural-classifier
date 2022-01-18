@@ -18,12 +18,12 @@ def unpickle(file):
         dict = pickle.load(f, encoding="latin1")
     return dict
 
-datadict = unpickle('/Users/Tommi/Documents/dataml100/cifar-10-batches-py/test_batch')
-datadict_train1 = unpickle('/Users/Tommi/Documents/dataml100/cifar-10-batches-py/data_batch_1')
-datadict_train2 = unpickle('/Users/Tommi/Documents/dataml100/cifar-10-batches-py/data_batch_2')
-datadict_train3 = unpickle('/Users/Tommi/Documents/dataml100/cifar-10-batches-py/data_batch_3')
-datadict_train4 = unpickle('/Users/Tommi/Documents/dataml100/cifar-10-batches-py/data_batch_4')
-datadict_train5 = unpickle('/Users/Tommi/Documents/dataml100/cifar-10-batches-py/data_batch_5')
+datadict = unpickle('/cifar-10-batches-py/test_batch')
+datadict_train1 = unpickle('/cifar-10-batches-py/data_batch_1')
+datadict_train2 = unpickle('/cifar-10-batches-py/data_batch_2')
+datadict_train3 = unpickle('/cifar-10-batches-py/data_batch_3')
+datadict_train4 = unpickle('/cifar-10-batches-py/data_batch_4')
+datadict_train5 = unpickle('/cifar-10-batches-py/data_batch_5')
 
 X_train1 = datadict_train1["data"]
 X_train2 = datadict_train2["data"]
