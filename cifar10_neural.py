@@ -80,7 +80,7 @@ import keras
 X_train = X_train / 255
 X = X / 255
 
-# labels to one hot vectors
+# transfer labels to one-hot vectors
 Y_train_1h = np.array(Y_train)
 Y_train_1h = tf.one_hot(Y_train_1h.astype(np.int32), depth=10)
 Y_1h = np.array(Y)
@@ -117,12 +117,12 @@ def onelayer_model(n_of_neurons, lrate, n_of_epochs):
 
     return predictions
 
-#%% testing
+#%% testing cell for one-layer NN model
 
 predictions = onelayer_model(64, 0.01, 30)
 preds = [np.argmax(predictions[i]) for i in range(predictions.shape[0])]
 
-print(class_acc(preds, Y)) # about 0.24
+print(class_acc(preds, Y)) # classifying accuracy about 0.24
 
 #%% convolutional neural network model
 
@@ -134,6 +134,7 @@ model2.add(Conv2D(32, 3, activation='relu'))
 model2.add(MaxPooling2D())
 model2.add(Dropout(0.25))
 
+# additional layer
 #model2.add(Conv2D(64, 3, padding='same', input_shape=X_train.shape[1:], activation='relu'))
 #model2.add(Conv2D(64, 3, activation='relu'))
 #model2.add(MaxPooling2D())
@@ -144,15 +145,16 @@ model2.add(Dense(512, activation='relu'))
 model2.add(Dropout(0.5))
 model2.add(Dense(10, activation='softmax'))
 
+# Compile model. Use a learning rate of 0.0001 and categorical cross-entropy as the loss function.
 model2.compile(optimizer=tf.keras.optimizers.RMSprop(learning_rate=0.0001, decay=1e-06), loss='categorical_crossentropy', metrics=['acc'])
 
-#%% fitting convolutional model
+#%% fitting convolutional model to training data
 
 tr_hist2 = model2.fit(X_train, Y_train_1h, batch_size=32, epochs=10)
 
-# predict X with model2
+# predict test data with model2
 predictions2 = model2.predict(X)
 preds2 = [np.argmax(predictions2[i]) for i in range(predictions2.shape[0])]
 
-# classifying accuracy
+# classifying accuracy is 0.68 
 print(class_acc(preds2, Y)) # 0.68
